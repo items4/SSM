@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.gov.jseport.entity.Goods;
 import cn.gov.jseport.mapper.GoodsMapper;
@@ -20,8 +21,10 @@ public class GoodsServiceImpl implements IGoodsService {
 	}
 
 	@Override
+	@Transactional
 	public void update(Goods goods) {
 		// TODO Auto-generated method stub
+		System.out.println(goods.getHostBusinessName()+goods.getGid()+"=======");
 		goodsMapper.updateByPrimaryKey(goods);
 	}
 

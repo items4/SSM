@@ -22,6 +22,7 @@
     <result column="unit_price" property="unitPrice" jdbcType="VARCHAR" />
     <result column="currency_system" property="currencySystem" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <association property="book" column="bookid" select="cn.gov.jseport.mapper.BookMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--

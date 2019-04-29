@@ -21,36 +21,37 @@ public class GoodsController {
 	@Resource
 	private IBookService bookServiceImpl;
 	
-	@RequestMapping("/findAll")
+	@RequestMapping("/goods_findAll")
 	public String findAll(HttpSession session) {
 		List list = goodsServiceImpl.findAll();
 		session.setAttribute("list", list);
 		return "/admin/goods/list";
 	}
 	
-	@RequestMapping("/save")
+	@RequestMapping("/goods_save")
 	public String save(Goods goods) {
 		goodsServiceImpl.save(goods);
-		return "redirect:/admin/goods//findAll";
+		return "redirect:/goods_findAll";
 	}
-	@RequestMapping("/update")
+	@RequestMapping("/goods_update")
 	public String update(Goods goods) {
+	
 		goodsServiceImpl.update(goods);
-		return "redirect:/admin/goods//findAll";
+		return "redirect:/goods_findAll";
 	}
 	
-	@RequestMapping("/delete")
+	@RequestMapping("goods_delete")
 	public String update(Integer gid) {
 		goodsServiceImpl.delete(gid);
-		return "redirect:/admin/goods//findAll";
+		return "redirect:/goods_findAll";
 	}
-	@RequestMapping("/findById")
+	@RequestMapping("/goods_findById")
 	public String findById(Integer gid,ModelMap map) {
 		Goods goods = goodsServiceImpl.findById(gid);
 		map.put("goods", goods);
-		return "forword:goInput";
+		return "forward:goods_goInput";
 	}
-	@RequestMapping("/goInput")
+	@RequestMapping("/goods_goInput")
 	public String goInput(ModelMap map) {
 		List books = bookServiceImpl.findAll();
 		map.put("books", books);
