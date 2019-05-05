@@ -15,6 +15,7 @@ import cn.gov.jseport.service.IGoodsService;
 
 
 @Controller
+@RequestMapping("admin/goods")
 public class GoodsController {
 	@Resource
 	private IGoodsService goodsServiceImpl;
@@ -31,19 +32,19 @@ public class GoodsController {
 	@RequestMapping("/goods_save")
 	public String save(Goods goods) {
 		goodsServiceImpl.save(goods);
-		return "redirect:/goods_findAll";
+		return "redirect:/admin/goods/goods_findAll";
 	}
 	@RequestMapping("/goods_update")
 	public String update(Goods goods) {
 	
 		goodsServiceImpl.update(goods);
-		return "redirect:/goods_findAll";
+		return "redirect:/admin/goods/goods_findAll";
 	}
 	
 	@RequestMapping("goods_delete")
 	public String update(Integer gid) {
 		goodsServiceImpl.delete(gid);
-		return "redirect:/goods_findAll";
+		return "redirect:/admin/goods/goods_findAll";
 	}
 	@RequestMapping("/goods_findById")
 	public String findById(Integer gid,ModelMap map) {

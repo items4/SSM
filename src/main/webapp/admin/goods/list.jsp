@@ -56,14 +56,14 @@
 	<td>${goods.remark}</td>
 	<td>${goods.gid}</td>
 	<td>
-	<a href="/goods_delete?gid=${goods.gid }">删除</a>
-	<a href="/goods_findById?gid=${goods.gid }">修改</a>
+	<a href="/admin/goods/goods_delete?gid=${goods.gid }">删除</a>
+	<a href="/admin/goods/goods_findById?gid=${goods.gid }">修改</a>
 	</td>
 </tr>
 </c:forEach>
 
 </table>
-<a href="/goods_goInput">增加</a>
+<a href="/admin/goods/goods_goInput">增加</a>
 
 
 
